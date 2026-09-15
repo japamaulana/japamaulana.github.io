@@ -1,12 +1,4 @@
-/* =========================================================
-   PORTFOLIO JAVASCRIPT
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =====================================================
-       ELEMENT
-    ===================================================== */
 
     const navbar = document.querySelector(".navbar");
 
@@ -19,10 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroImage =
         document.querySelector(".hero-image");
 
-
-    /* =====================================================
-       NAVBAR SCROLL
-    ===================================================== */
+// Navbar Scroll
 
     const handleNavbarScroll = () => {
 
@@ -50,10 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handleNavbarScroll();
 
 
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
+// Navigation
     const updateActiveNav = () => {
 
         if (!navLinks.length) return;
@@ -127,11 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActiveNav();
 
 
-    /* =====================================================
-       SMOOTH SCROLL
-       Semua link yang menuju #section
-    ===================================================== */
-
+// Scroll
     const internalLinks =
         document.querySelectorAll(
             'a[href^="#"]'
@@ -180,24 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     targetSection.offsetTop;
 
 
-                /*
-                 * Desktop:
-                 * Navbar berada di atas.
-                 */
-
                 if (window.innerWidth > 650) {
 
                     targetPosition -=
                         navbarHeight + 20;
 
                 }
-
-
-                /*
-                 * Mobile:
-                 * Navbar berada di bawah,
-                 * jadi tidak perlu dikurangi.
-                 */
 
                 window.scrollTo({
 
@@ -217,10 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-
     const revealElements =
         document.querySelectorAll(
             [
@@ -239,11 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /* =====================================================
-       INTERSECTION OBSERVER
-    ===================================================== */
-
+// Intersection
     if (
         "IntersectionObserver" in window
     ) {
@@ -289,10 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } else {
 
-        /*
-         * Fallback browser lama
-         */
-
         revealElements.forEach((element) => {
 
             element.classList.add("show");
@@ -301,11 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       SKILL CARD 3D EFFECT
-    ===================================================== */
-
+// card
     const skillCards =
         document.querySelectorAll(
             ".skill-card"
@@ -317,11 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener(
             "mousemove",
             (event) => {
-
-                /*
-                 * Tidak menjalankan
-                 * efek 3D di tablet/mobile.
-                 */
 
                 if (
                     window.innerWidth <= 900
@@ -381,11 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /* =====================================================
-       PROJECT IMAGE EFFECT
-    ===================================================== */
-
+// Project Image
     const projectImages =
         document.querySelectorAll(
             ".project-image"
@@ -460,21 +405,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /* =====================================================
-       HERO IMAGE 3D EFFECT
-    ===================================================== */
-
+// Hero Image
     if (heroImage) {
 
         heroImage.addEventListener(
             "mousemove",
             (event) => {
-
-                /*
-                 * Matikan efek pada
-                 * tablet/mobile.
-                 */
 
                 if (
                     window.innerWidth <= 900
@@ -532,11 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       BUTTON RIPPLE
-    ===================================================== */
-
+// Buttton Ripple
     const buttons =
         document.querySelectorAll(
             ".button"
@@ -638,26 +570,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       PAGE LOADED
-    ===================================================== */
-
     document.body.classList.add(
         "loaded"
     );
 
 
-    /* =====================================================
-       RESIZE
-    ===================================================== */
-
     window.addEventListener(
         "resize",
         () => {
-
-            /*
-             * Reset hero 3D effect
-             */
 
             if (
                 window.innerWidth <= 900 &&
@@ -668,11 +588,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     "";
 
             }
-
-
-            /*
-             * Reset skill card
-             */
 
             if (
                 window.innerWidth <= 900
@@ -689,10 +604,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-
-            /*
-             * Update active navbar
-             */
 
             updateActiveNav();
 
