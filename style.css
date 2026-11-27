@@ -853,15 +853,11 @@ button {
     color: var(--paper);
 }
 
-/* Contact + footer: one dark closing screen. The message is centered in the space
-   above, and a slim footer row is pinned to the bottom of the same dark block. */
+/* Contact screen: message centered, the footer row pinned to the bottom. */
 .contact {
-    --focus: var(--mint-bright);
     flex-direction: column;
     align-items: stretch;
     padding-bottom: 0 !important;
-    background: var(--night);
-    color: var(--on-night);
 }
 
 .contact > .wrap {
@@ -874,27 +870,9 @@ button {
     padding-block: clamp(0.75rem, 3vh, 2rem);
 }
 
-.contact .eyebrow,
-.contact .contact-sub {
-    color: var(--on-night-muted);
-}
-
-.contact .contact-email:hover {
-    text-decoration-color: var(--mint-bright);
-}
-
-.contact .contact-links a {
-    border-color: rgba(237, 234, 226, 0.45);
-}
-
-.contact .contact-links a:hover {
-    background: var(--mint);
-    border-color: var(--mint);
-    color: var(--ink);
-}
-
+/* One footer: a thin closing row at the bottom of the Contact screen. */
 .footer {
-    border-top: 1px solid var(--night-line);
+    border-top: 1px solid rgba(20, 20, 20, 0.2);
 }
 
 .footer-row {
@@ -902,48 +880,24 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem 1.5rem;
-    min-height: 4.5rem;
-    padding-block: 0.75rem;
+    gap: 0.25rem 1.5rem;
+    min-height: 4rem;
+    padding-block: 0.5rem;
     font-family: var(--mono);
     font-size: 0.82rem;
-    color: var(--on-night-muted);
-}
-
-.footer-row p {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25rem 1rem;
-}
-
-.footer-name {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: -0.02em;
-    color: var(--on-night);
-}
-
-.footer-name span {
-    font-weight: 500;
-    color: var(--mint-bright);
+    color: var(--muted);
 }
 
 .footer-top-link {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    padding-inline: 1rem;
-    font-weight: 500;
     color: var(--ink);
-    background: var(--mint);
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.15s ease;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .footer-top-link:hover {
-    background: var(--paper);
+    text-decoration-thickness: 2px;
 }
 
