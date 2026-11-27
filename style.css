@@ -417,6 +417,22 @@ button {
     max-width: 340px;
 }
 
+/* The wrapper clips the photo so it can zoom in slightly on hover without growing. */
+.intro-photo-wrap {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .intro-photo {
+        transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .intro-photo-wrap:hover .intro-photo {
+        transform: scale(1.05);
+    }
+}
+
 .intro-photo {
     width: 100%;
     max-height: 44vh;
@@ -449,7 +465,7 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .intro-photo {
+    .intro-photo-wrap {
         width: 120px;
     }
 
