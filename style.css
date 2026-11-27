@@ -561,6 +561,52 @@ summary,
     margin-top: clamp(2rem, 4vw, 3rem);
 }
 
+/* NasehatKu is the newest and only live app, so it opens the list; its tall screenshot sits in a phone frame. */
+.project-feature-phone {
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    gap: clamp(1.75rem, 5vw, 4.5rem);
+}
+
+.project-feature-phone .project-shot,
+.project-phone .project-shot {
+    border-radius: 20px;
+    border: 6px solid var(--ink);
+}
+
+.project-feature-wide,
+.project-leap {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--rule);
+}
+
+/* The Leap Motion capture is small (288px), so it stays at its own size beside the text. */
+.project-leap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 288px);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: center;
+}
+
+.project-leap .project-shot {
+    order: 2;
+}
+
+@media (max-width: 760px) {
+    .project-feature-phone .project-shot {
+        max-width: 220px;
+    }
+
+    .project-leap {
+        grid-template-columns: 1fr;
+    }
+
+    .project-leap .project-shot {
+        order: 0;
+        max-width: 288px;
+    }
+}
+
 /* Second row: layout follows each screenshot's shape (tall phone vs wide chart). */
 .project-pair {
     display: grid;
@@ -576,11 +622,6 @@ summary,
     grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
     gap: 1.5rem;
     align-items: start;
-}
-
-.project-phone .project-shot {
-    border-radius: 18px;
-    border: 6px solid var(--ink);
 }
 
 .project-chart {
