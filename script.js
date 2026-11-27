@@ -1,613 +1,89 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const navbar = document.querySelector(".navbar");
-
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    const sections = document.querySelectorAll(
-        "#home, main section, section"
-    );
-
-    const heroImage =
-        document.querySelector(".hero-image");
-
-// Navbar Scroll
-
-    const handleNavbarScroll = () => {
-
-        if (!navbar) return;
-
-        if (window.scrollY > 30) {
-
-            navbar.classList.add("scrolled");
-
-        } else {
-
-            navbar.classList.remove("scrolled");
-
-        }
-
-    };
-
-
-    window.addEventListener(
-        "scroll",
-        handleNavbarScroll,
-        { passive: true }
-    );
-
-    handleNavbarScroll();
-
-
-// Navigation
-    const updateActiveNav = () => {
-
-        if (!navLinks.length) return;
-
-
-        let currentSection = "home";
-
-        const scrollPosition =
-            window.scrollY + 180;
-
-
-        sections.forEach((section) => {
-
-            if (!section.id) return;
-
-
-            const sectionTop =
-                section.offsetTop;
-
-            const sectionBottom =
-                sectionTop + section.offsetHeight;
-
-
-            if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionBottom
-            ) {
-
-                currentSection =
-                    section.id;
-
-            }
-
-        });
-
-
-        navLinks.forEach((link) => {
-
-            const target =
-                link.getAttribute("href");
-
-
-            link.classList.remove("active");
-
-
-            if (
-                target ===
-                `#${currentSection}`
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    };
-
-
-    window.addEventListener(
-        "scroll",
-        updateActiveNav,
-        { passive: true }
-    );
-
-    window.addEventListener(
-        "resize",
-        updateActiveNav
-    );
-
-    updateActiveNav();
-
-
-// Scroll
-    const internalLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    internalLinks.forEach((link) => {
-
-        link.addEventListener(
-            "click",
-            (event) => {
-
-                const targetId =
-                    link.getAttribute("href");
-
-
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
-                }
-
-
-                const targetSection =
-                    document.querySelector(
-                        targetId
-                    );
-
-
-                if (!targetSection) {
-                    return;
-                }
-
-
-                event.preventDefault();
-
-
-                const navbarHeight =
-                    navbar
-                        ? navbar.offsetHeight
-                        : 0;
-
-
-                let targetPosition =
-                    targetSection.offsetTop;
-
-
-                if (window.innerWidth > 650) {
-
-                    targetPosition -=
-                        navbarHeight + 20;
-
-                }
-
-                window.scrollTo({
-
-                    top:
-                        Math.max(
-                            targetPosition,
-                            0
-                        ),
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    });
-
-
-    const revealElements =
-        document.querySelectorAll(
-            [
-                ".about-content",
-                ".about-grid",
-                ".project",
-                ".skill-card",
-                ".contact .section-container"
-            ].join(", ")
-        );
-
-
-    revealElements.forEach((element) => {
-
-        element.classList.add("reveal");
-
-    });
-
-// Intersection
-    if (
-        "IntersectionObserver" in window
-    ) {
-
-        const revealObserver =
-            new IntersectionObserver(
-                (entries, observer) => {
-
-                    entries.forEach((entry) => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "show"
-                            );
-
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.15
-                }
-            );
-
-
-        revealElements.forEach((element) => {
-
-            revealObserver.observe(
-                element
-            );
-
-        });
-
-
-    } else {
-
-        revealElements.forEach((element) => {
-
-            element.classList.add("show");
-
-        });
-
-    }
-
-// card
-    const skillCards =
-        document.querySelectorAll(
-            ".skill-card"
-        );
-
-
-    skillCards.forEach((card) => {
-
-        card.addEventListener(
-            "mousemove",
-            (event) => {
-
-                if (
-                    window.innerWidth <= 900
-                ) {
-                    return;
-                }
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    ((y - centerY) /
-                        centerY) * -4;
-
-                const rotateY =
-                    ((x - centerX) /
-                        centerX) * 4;
-
-
-                card.style.transform = `
-                    perspective(600px)
-                    translateY(-8px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                `;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform = "";
-
-            }
-        );
-
-    });
-
-// Project Image
-    const projectImages =
-        document.querySelectorAll(
-            ".project-image"
-        );
-
-
-    projectImages.forEach((image) => {
-
-        const img =
-            image.querySelector("img");
-
-
-        if (!img) return;
-
-
-        image.addEventListener(
-            "mousemove",
-            (event) => {
-
-                if (
-                    window.innerWidth <= 900
-                ) {
-                    return;
-                }
-
-
-                const rect =
-                    image.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const moveX =
-                    (
-                        x / rect.width -
-                        0.5
-                    ) * 8;
-
-
-                const moveY =
-                    (
-                        y / rect.height -
-                        0.5
-                    ) * 8;
-
-
-                img.style.transform = `
-                    scale(1.04)
-                    translate(${moveX}px, ${moveY}px)
-                `;
-
-            }
-        );
-
-
-        image.addEventListener(
-            "mouseleave",
-            () => {
-
-                img.style.transform =
-                    "scale(1)";
-
-            }
-        );
-
-    });
-
-// Hero Image
-    if (heroImage) {
-
-        heroImage.addEventListener(
-            "mousemove",
-            (event) => {
-
-                if (
-                    window.innerWidth <= 900
-                ) {
-                    return;
-                }
-
-
-                const rect =
-                    heroImage.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const rotateY =
-                    (
-                        x / rect.width -
-                        0.5
-                    ) * 6;
-
-
-                const rotateX =
-                    (
-                        y / rect.height -
-                        0.5
-                    ) * -6;
-
-
-                heroImage.style.transform = `
-                    perspective(800px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                `;
-
-            }
-        );
-
-
-        heroImage.addEventListener(
-            "mouseleave",
-            () => {
-
-                heroImage.style.transform =
-                    "perspective(800px) rotateX(0deg) rotateY(0deg)";
-
-            }
-        );
-
-    }
-
-// Buttton Ripple
-    const buttons =
-        document.querySelectorAll(
-            ".button"
-        );
-
-
-    buttons.forEach((button) => {
-
-        button.addEventListener(
-            "click",
-            (event) => {
-
-                const ripple =
-                    document.createElement(
-                        "span"
-                    );
-
-
-                const rect =
-                    button.getBoundingClientRect();
-
-
-                const size =
-                    Math.max(
-                        rect.width,
-                        rect.height
-                    );
-
-
-                ripple.style.width =
-                    `${size}px`;
-
-                ripple.style.height =
-                    `${size}px`;
-
-
-                ripple.style.position =
-                    "absolute";
-
-
-                ripple.style.left =
-                    `${
-                        event.clientX -
-                        rect.left -
-                        size / 2
-                    }px`;
-
-
-                ripple.style.top =
-                    `${
-                        event.clientY -
-                        rect.top -
-                        size / 2
-                    }px`;
-
-
-                ripple.style.background =
-                    "rgba(255,255,255,0.18)";
-
-
-                ripple.style.borderRadius =
-                    "50%";
-
-
-                ripple.style.pointerEvents =
-                    "none";
-
-
-                ripple.style.transform =
-                    "scale(0)";
-
-
-                ripple.style.animation =
-                    "ripple 0.6s ease-out";
-
-
-                button.style.position =
-                    "relative";
-
-
-                button.style.overflow =
-                    "hidden";
-
-
-                button.appendChild(
-                    ripple
-                );
-
-
-                setTimeout(() => {
-
-                    ripple.remove();
-
-                }, 600);
-
-            }
-        );
-
-    });
-
-
-    document.body.classList.add(
-        "loaded"
-    );
-
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            if (
-                window.innerWidth <= 900 &&
-                heroImage
-            ) {
-
-                heroImage.style.transform =
-                    "";
-
-            }
-
-            if (
-                window.innerWidth <= 900
-            ) {
-
-                skillCards.forEach(
-                    (card) => {
-
-                        card.style.transform =
-                            "";
-
-                    }
-                );
-
-            }
-
-
-            updateActiveNav();
-
-        }
-    );
-
+const root = document.documentElement;
+const header = document.querySelector(".site-header");
+const nav = document.getElementById("site-nav");
+const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeLabel = document.querySelector(".theme-toggle-label");
+
+/* Theme toggle: the initial theme is set inline in <head> to avoid a flash. */
+function syncThemeButton() {
+    const isDark = root.dataset.theme === "dark";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeLabel.textContent = isDark ? "Light" : "Dark";
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+}
+
+themeToggle.addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", root.dataset.theme);
+    syncThemeButton();
 });
+
+syncThemeButton();
+
+/* Mobile menu */
+function setMenu(open) {
+    nav.classList.toggle("is-open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.textContent = open ? "Close" : "Menu";
+}
+
+menuToggle.addEventListener("click", () => {
+    setMenu(!nav.classList.contains("is-open"));
+});
+
+nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setMenu(false);
+        menuToggle.focus();
+    }
+});
+
+window.matchMedia("(min-width: 761px)").addEventListener("change", (event) => {
+    if (event.matches) setMenu(false);
+});
+
+/* Header rule appears once the page scrolls, so the hero starts clean. */
+const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+/* Mark the nav link for the section currently in view. */
+const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach((link) => {
+                const active = link.getAttribute("href") === `#${entry.target.id}`;
+                if (active) link.setAttribute("aria-current", "true");
+                else link.removeAttribute("aria-current");
+            });
+        });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
+/* Highlighter strokes draw once when their phrase scrolls into view. */
+const markObserver = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-drawn");
+            observer.unobserve(entry.target);
+        });
+    },
+    { threshold: 0.8 }
+);
+
+document.querySelectorAll(".mark").forEach((mark) => markObserver.observe(mark));

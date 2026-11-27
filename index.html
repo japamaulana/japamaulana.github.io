@@ -1,560 +1,286 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Japa Maulana, junior software engineer. Web apps in Laravel, Android apps in Java, data analysis in Python.">
+    <title>Japa Maulana | Junior Software Engineer</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <script>
+        (function () {
+            var saved = localStorage.getItem("theme");
+            var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = dark ? "dark" : "light";
+            document.documentElement.classList.add("js");
+        })();
+    </script>
 
-    <meta
-        name="description"
-        content="Portfolio Japa"
-    >
-
-    <title>Portfolio | Japa</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
-
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >   
 </head>
 
-
 <body>
-<!-- ! Navbar -->
-        <header class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-            <nav class="nav-container">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="wordmark" href="#top">Japa Maulana</a>
 
-                <ul class="nav-menu">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                Menu
+            </button>
 
-                    <!-- HOME -->
-                    <li class="nav-item">
-                        <a
-                            href="#home"
-                            class="nav-link active"
-                        >
-                            <i class="fa-solid fa-house"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-
-
-                    <!-- ABOUT -->
-                    <li class="nav-item">
-                        <a
-                            href="#about"
-                            class="nav-link"
-                        >
-                            <i class="fa-solid fa-user"></i>
-                            <span>About</span>
-                        </a>
-                    </li>
-
-
-                    <!-- MY WORK -->
-                    <li class="nav-item">
-                        <a
-                            href="#projects"
-                            class="nav-link"
-                        >
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>My Work</span>
-                        </a>
-                    </li>
-
-
-                    <!-- SKILLS -->
-                    <li class="nav-item">
-                        <a
-                            href="#skills"
-                            class="nav-link"
-                        >
-                            <i class="fa-solid fa-code"></i>
-                            <span>Skills</span>
-                        </a>
-                    </li>
-
-
-                    <!-- CONTACT -->
-                    <li class="nav-item">
-                        <a
-                            href="#contact"
-                            class="nav-link"
-                        >
-                            <i class="fa-regular fa-envelope"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="theme-toggle" type="button" aria-pressed="false">
+                    <span class="theme-toggle-label">Dark</span>
+                </button>
             </nav>
+        </div>
+    </header>
 
-        </header>
+    <main id="main">
 
-    <main>
-
-<!--! Hero  -->
-        <section
-            class="hero"
-            id="home"
-        >
-
-            <div class="hero-container">
-
-                <div class="hero-content">
-
-                    <div class="hero-line"></div>
-
+        <section class="hero" id="top">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="hero-role">Junior Software Engineer</p>
                     <h1>
-                        I'm Japa, a
-                        <span>Junior Software Engineer</span>
+                        Hi, I'm Japa. I build
+                        <span class="mark">web and Android apps</span>,
+                        and I like digging into data.
                     </h1>
-
-                    <p class="hero-description">
-                        I enjoy learning programming,
-                        exploring new technologies,
-                        and solving problems through code.
+                    <p class="hero-sub">
+                        Laravel and PostgreSQL on the web, Java on Android,
+                        Python and Pandas for analysis.
                     </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-solid" href="#projects">See my projects</a>
+                        <a class="btn btn-line" href="mailto:maulanajapa02@gmail.com">Email me</a>
+                    </div>
+                </div>
 
-                    <a
-                        href="#about"
-                        class="scroll-button"
+                <figure class="hero-photo">
+                    <img
+                        src="assets/profile-portrait.jpg"
+                        alt="Japa smiling, wearing glasses and a navy t-shirt, standing among pine trees"
+                        width="825"
+                        height="1100"
+                        fetchpriority="high"
                     >
-                        ↓
-                    </a>
-
-                </div>
-
-<!-- ! Hero Image -->
-                <div class="hero-image">
-
-                    <div class="image-wrapper">
-
-                        <img
-                            src="assets/profile.jpg"
-                            alt="Foto profil Japa"
-                        >
-
-                        <div class="profile-overlay"></div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-side">
-                    <!-- ABOUT ME -->
-                    <div class="side-block">
-
-                        <p class="side-label">
-                            ABOUT ME
-                        </p>
-
-                        <p class="side-description">
-                            Hello, I'm Japa. I really enjoy programming, 
-                            if there are any coding issues, I will do my absolute best to fix them.
-                        </p>
-
-                        <a
-                            href="#about"
-                            class="learn-more"
-                        >
-                            LEARN MORE →
-                        </a>
-
-                    </div>
-
-                    <!-- MY WORK -->
-                    <div class="side-block">
-
-                        <p class="side-label">
-                            MY WORK
-                        </p>
-
-                        <p class="side-description">
-                            I have several projects from my studies that you can view.
-                        </p>
-
-                        <a
-                            href="#projects"
-                            class="learn-more"
-                        >
-                            VIEW PROJECTS →
-                        </a>
-
-                    </div>
-
-                    <!-- FOLLOW ME -->
-                    <div class="side-block">
-
-                        <p class="side-label">
-                            FOLLOW ME
-                        </p>
-
-                        <div class="socials">
-
-                            <!-- Facebook -->
-                            <a
-                                href="https://www.facebook.com/share/1NGmTYfRR8/?mibextid=wwXIfr"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Facebook"
-                            >
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-
-                            <!-- Instagram -->
-                            <a
-                                href="https://www.instagram.com/jeeeppp2/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                            >
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-
-                            <!-- LinkedIn -->
-                            <a
-                                href="https://www.linkedin.com/in/muhammad-japa-maulana/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="LinkedIn"
-                            >
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-
-                            <!-- GitHub -->
-                            <a
-                                href="https://github.com/japamaulana"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="GitHub"
-                            >
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-
-                            <!-- WhatsApp -->
-                            <a
-                                href="https://wa.me/6285797523863"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="WhatsApp"
-                            >
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
+                </figure>
             </div>
-
         </section>
 
-<!-- ! About Me -->
-        <section
-            class="about"
-            id="about"
-        >
-
-            <div class="section-container">
-
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div class="wrap">
+                <p class="section-index"><span>01</span> About</p>
                 <div class="about-grid">
-
-                    <div class="about-heading">
-
-                        <h2 class="section-title">
-                            I've been developing
-                            websites and learning
-                            technology.
-                        </h2>
-
-                        <a
-                            href="#projects"
-                            class="about-link"
-                        >
-                            More about me →
-                        </a>
-
-                    </div>
-
+                    <h2 id="about-title" class="about-lead">
+                        When the code breaks, I want to know <span class="mark">why</span>.
+                    </h2>
                     <div class="about-text">
-
                         <p>
-                            I am quick at learning new things, such as programming languages, 
-                            frameworks, and libraries, which makes me quicker at adapting. 
-                            I also like solving problems in coding.
+                            I'm a junior software engineer who picks up new languages,
+                            frameworks, and libraries quickly, and adapts to whatever
+                            stack a project needs.
                         </p>
-
                         <p>
-                            I enjoy trying out new technologies and finding solutions when I encounter problems in the code.
+                            The part of the work I enjoy most is problem solving. If
+                            something in the code isn't working, I'll keep at it until
+                            it does. The projects below came out of my studies, and each
+                            one uses a different stack.
                         </p>
-
                     </div>
-
-
                 </div>
-
             </div>
-
         </section>
 
-<!-- ! Ma Work -->
-<section
-    class="projects"
-    id="projects"
->
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="section-index"><span>02</span> Projects</p>
+                    <h2 id="projects-title" class="visually-hidden">Projects</h2>
+                    <a class="text-link" href="https://github.com/japamaulana" target="_blank" rel="noopener noreferrer">
+                        All repositories on GitHub
+                    </a>
+                </div>
 
-    <div class="section-container">
+                <article class="project project-feature">
+                    <a class="project-shot" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                        <img
+                            src="assets/rental-1600.jpg"
+                            alt=""
+                            width="1600"
+                            height="784"
+                            loading="lazy"
+                        >
+                    </a>
+                    <div class="project-body">
+                        <p class="project-kind">Web app</p>
+                        <h3 class="project-title">Rental Mobil Barokah</h3>
+                        <p>
+                            A car rental website with an admin panel for managing the
+                            fleet (full CRUD on car data) and reviews from customers.
+                            Includes login, CSRF protection, rate limiting, and input
+                            sanitization.
+                        </p>
+                        <p class="project-stack">Laravel 11 · Blade · Tailwind CSS · PostgreSQL 15 · Docker</p>
+                        <a class="text-link" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer">
+                            Read the code on GitHub
+                        </a>
+                    </div>
+                </article>
 
-        <div class="projects-header">
+                <div class="project-pair">
+                    <article class="project project-phone">
+                        <a class="project-shot" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <img
+                                src="assets/image.png"
+                                alt=""
+                                width="359"
+                                height="799"
+                                loading="lazy"
+                            >
+                        </a>
+                        <div class="project-body">
+                            <p class="project-kind">Android app</p>
+                            <h3 class="project-title">Weather App</h3>
+                            <p>
+                                Type a city and get the current weather plus the next
+                                few days of forecast, pulled from the OpenWeatherMap API.
+                                Built with the MVP pattern so the API calls, data models,
+                                and screens stay in separate layers.
+                            </p>
+                            <p class="project-stack">Java · Retrofit2 · Gson · OpenWeatherMap API</p>
+                            <a class="text-link" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer">
+                                Read the code on GitHub
+                            </a>
+                        </div>
+                    </article>
 
-            <div>
-
-                <p class="section-label">
-                    MY WORK
-                </p>
-
+                    <article class="project project-chart">
+                        <a class="project-shot" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <img
+                                src="assets/data.png"
+                                alt=""
+                                width="594"
+                                height="414"
+                                loading="lazy"
+                            >
+                        </a>
+                        <div class="project-body">
+                            <p class="project-kind">Data analysis</p>
+                            <h3 class="project-title">Bike Sharing Analysis</h3>
+                            <p>
+                                Looks for patterns in bike rentals by time and weather,
+                                using the daily (731 rows) and hourly (17,379 rows)
+                                Bike Sharing datasets. Covers data wrangling, exploratory
+                                analysis, and charts, with results published as a
+                                Streamlit dashboard.
+                            </p>
+                            <p class="project-stack">Python · Pandas · Matplotlib · Seaborn · Streamlit</p>
+                            <div class="project-links">
+                                <a class="text-link" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer">
+                                    Open the dashboard
+                                </a>
+                                <a class="text-link" href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis" target="_blank" rel="noopener noreferrer">
+                                    Notebook on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <a
-                href="https://github.com/japamaulana"
-                class="projects-more"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                VIEW MY GITHUB →
-            </a>
-
-        </div>
-
-        <div class="projects-grid">
-<!-- ! Project 1 -->
-            <a
-                href="https://github.com/japamaulana/weitherapp"
-                class="project-card"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <div class="project-card-image">
-
-                    <img
-                        src="assets/image.png"
-                        alt="Preview Project Pertama"
-                        loading="lazy"
-                    >
-
+        <section class="skills" id="skills" aria-labelledby="skills-title">
+            <div class="wrap skills-grid">
+                <div class="skills-intro">
+                    <p class="section-index"><span>03</span> Skills</p>
+                    <h2 id="skills-title">Tools I work with</h2>
                 </div>
 
-                <div class="project-card-content">
-
-                    <span class="project-card-number">
-                    ANDROID
-                    </span>
-
-                    <p class="project-card-category">
-                        Android Development
-                    </p>
-
-                    <span class="project-card-link">
-                        VIEW ON GITHUB →
-                    </span>
-
-                </div>
-
-            </a>
-
-<!-- ! Project 2 -->
-            <a
-                href="https://github.com/japamaulana/rental-mobilbarokah"
-                class="project-card"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <div class="project-card-image">
-
-                    <img
-                        src="assets/rental.png"
-                        alt="Preview Project Kedua"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="project-card-content">
-
-                    <span class="project-card-number">
-                    Website
-                    </span>
-
-                    <p class="project-card-category">
-                        Website Project
-                    </p>
-
-                    <span class="project-card-link">
-                        VIEW ON GITHUB →
-                    </span>
-
-                </div>
-
-            </a>
-
-<!-- ! Project 3 -->
-            <a
-                href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis"
-                class="project-card"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <div class="project-card-image">
-
-                    <img
-                        src="assets/data.png"
-                        alt="Preview Project Ketiga"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="project-card-content">
-
-                    <span class="project-card-number">
-                    DATA ANALYST
-                    </span>
-
-                    <p class="project-card-category">
-                        Jupiter Notebook
-                    </p>
-
-                    <span class="project-card-link">
-                        VIEW ON GITHUB →
-                    </span>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ! Skills -->
-        <div class="skills-grid">
-
-            <!-- Full Stack -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-                </div>
-                <span>Full Stack Development</span>
+                <dl class="skill-list">
+                    <div class="skill-row">
+                        <dt>Web development</dt>
+                        <dd>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="" width="24" height="24" loading="lazy">PHP</span>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="" width="24" height="24" loading="lazy">Laravel</span>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" width="24" height="24" loading="lazy">MySQL</span>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="24" height="24" loading="lazy">PostgreSQL</span>
+                        </dd>
+                    </div>
+                    <div class="skill-row">
+                        <dt>Programming languages</dt>
+                        <dd>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="" width="24" height="24" loading="lazy">C#</span>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="24" height="24" loading="lazy">Python</span>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" width="24" height="24" loading="lazy">JavaScript</span>
+                        </dd>
+                    </div>
+                    <div class="skill-row">
+                        <dt>Data analysis</dt>
+                        <dd>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="" width="24" height="24" loading="lazy">Pandas</span>
+                        </dd>
+                    </div>
+                    <div class="skill-row">
+                        <dt>Game development</dt>
+                        <dd>
+                            <span class="tool"><img class="invert-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="" width="24" height="24" loading="lazy">Unity</span>
+                        </dd>
+                    </div>
+                    <div class="skill-row">
+                        <dt>UI/UX design</dt>
+                        <dd>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" width="24" height="24" loading="lazy">Figma</span>
+                        </dd>
+                    </div>
+                    <div class="skill-row">
+                        <dt>Version control</dt>
+                        <dd>
+                            <span class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" width="24" height="24" loading="lazy">Git &amp; GitHub</span>
+                        </dd>
+                    </div>
+                </dl>
             </div>
+        </section>
 
-            <!-- Programming -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                </div>
-                <span>Programming</span>
-            </div>
-
-            <!-- Data Analysis -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
-                </div>
-                <span>Data Analysis</span>
-            </div>
-
-            <!-- Game Development -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
-                </div>
-                <span>Game Development</span>
-            </div>
-
-            <!-- UI/UX -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                </div>
-                <span>UI/UX Design</span>
-            </div>
-
-            <!-- Tools -->
-            <div class="skill-card">
-                <div class="skill-icons">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-                </div>
-                <span>Git & GitHub</span>
-            </div>
-
-        </div>
-<!-- !Contact -->
-        <section
-            class="contact"
-            id="contact"
-        >
-
-            <div class="section-container">
-
-                <h2 class="section-title">
-                    Let's Work Together
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="wrap">
+                <p class="section-index"><span>04</span> Contact</p>
+                <h2 id="contact-title" class="contact-title">
+                    Got a project, or just want to say hi?
                 </h2>
+                <a class="contact-email" href="mailto:maulanajapa02@gmail.com">maulanajapa02@gmail.com</a>
 
-                <p class="section-description">
-                    Punya project atau ingin
-                    berkenalan? Silakan hubungi saya.
-                </p>
-
-                <a
-                    href="mailto:maulanajapa02@gmail.com"
-                    class="button button-primary"
-                >
-                    Say Hello
-                </a>
-
+                <ul class="contact-links">
+                    <li><a href="https://wa.me/6285797523863" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    <li><a href="https://www.linkedin.com/in/muhammad-japa-maulana/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://github.com/japamaulana" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/jeeeppp2/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/share/1NGmTYfRR8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                </ul>
             </div>
-
         </section>
-
 
     </main>
 
-<!-- ! Footer -->
-    <footer class="footer">
-
-        <p>
-            &copy; 2026 Japa.
-            All rights reserved.
-        </p>
-
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <p>&copy; 2026 Japa Maulana</p>
+            <a href="#top">Back to top</a>
+        </div>
     </footer>
 
-<!-- ! javascript -->
-    <script src="script.js"></script>
-
+    <script src="script.js" defer></script>
 </body>
-
 </html>
