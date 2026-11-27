@@ -10,8 +10,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
     <header class="topbar">
         <div class="wrap topbar-inner">
-            <a class="wordmark" href="#top">Japa<span>.</span></a>
+            <a class="wordmark" href="#top">japa<span>maulana</span></a>
             <nav aria-label="Main">
                 <ul class="nav-list">
                     <li><a href="#about">About</a></li>
@@ -32,338 +32,211 @@
 
     <main id="main">
 
-        <!-- Intro: headline, ID stamp, polaroid -->
-        <section class="intro" id="top" aria-labelledby="intro-title">
-            <div class="wrap">
-                <h1 id="intro-title" class="intro-title">
-                    <span>Hi, I'm Japa.</span>
-                    <span>I turn ideas into</span>
-                    <em>working apps</em>
-                </h1>
-
-                <div class="intro-board">
-                    <div class="stamp">
-                        <dl class="stamp-fields">
-                            <div>
-                                <dt>Name</dt>
-                                <dd>Muhammad Japa Maulana</dd>
-                            </div>
-                            <div>
-                                <dt>Goes by</dt>
-                                <dd>Japa</dd>
-                            </div>
-                            <div>
-                                <dt>Role</dt>
-                                <dd>Junior Software Engineer</dd>
-                            </div>
-                            <div>
-                                <dt>Stack</dt>
-                                <dd class="stamp-stack">
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="" width="20" height="20">Laravel</span>
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="" width="20" height="20">Flutter</span>
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" width="20" height="20">Java</span>
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="20" height="20">Python</span>
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="20" height="20">PostgreSQL</span>
-                                    <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="" width="20" height="20">Unity</span>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>Say hello</dt>
-                                <dd><a href="mailto:maulanajapa02@gmail.com">maulanajapa02@gmail.com</a></dd>
-                            </div>
-                        </dl>
+        <!-- 1. Intro -->
+        <section class="screen intro" id="top" data-tone="light" aria-labelledby="intro-title">
+            <div class="wrap intro-grid">
+                <div class="intro-copy">
+                    <p class="eyebrow">Junior Software Engineer / Portfolio 2026</p>
+                    <h1 id="intro-title" class="intro-title">
+                        I turn ideas into <span class="mark">working apps</span>.
+                    </h1>
+                    <p class="intro-sub">
+                        I'm Japa. I build web apps with Laravel, mobile apps with Flutter
+                        and Java, and dig into data with Python.
+                    </p>
+                    <div class="intro-actions">
+                        <a class="btn btn-solid" href="#work">See my projects</a>
+                        <a class="btn btn-line" href="mailto:maulanajapa02@gmail.com">Email me</a>
                     </div>
+                </div>
 
-                    <figure class="polaroid polaroid-hero">
-                        <img
-                            src="assets/profile-portrait.jpg"
-                            alt="Japa smiling, wearing glasses and a navy t-shirt, standing among pine trees"
-                            width="825"
-                            height="1100"
-                            fetchpriority="high"
-                        >
-                    </figure>
+                <aside class="intro-card" aria-label="Quick facts">
+                    <img
+                        class="intro-photo"
+                        src="assets/profile-portrait.jpg"
+                        alt="Japa smiling, wearing glasses and a navy t-shirt, standing among pine trees"
+                        width="825"
+                        height="1100"
+                        fetchpriority="high"
+                    >
+                    <dl class="spec">
+                        <div><dt>Name</dt><dd>Muhammad Japa Maulana</dd></div>
+                        <div><dt>Role</dt><dd>Junior Software Engineer</dd></div>
+                        <div><dt>Stack</dt><dd>Laravel, Flutter, Java, Python</dd></div>
+                        <div><dt>Email</dt><dd><a href="mailto:maulanajapa02@gmail.com">maulanajapa02@gmail.com</a></dd></div>
+                    </dl>
+                </aside>
+            </div>
+        </section>
 
-                    <svg class="seal" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-                        <defs>
-                            <path id="seal-path" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
-                        </defs>
-                        <circle cx="60" cy="60" r="58"/>
-                        <text><textPath href="#seal-path">PORTFOLIO 2026 · JAPA MAULANA · </textPath></text>
-                        <text class="seal-mark" x="60" y="67" text-anchor="middle">&lt;/&gt;</text>
-                    </svg>
+        <!-- 2. About -->
+        <section class="screen about" id="about" data-tone="mint" aria-labelledby="about-title">
+            <div class="wrap about-grid">
+                <div>
+                    <p class="eyebrow">About</p>
+                    <h2 id="about-title" class="about-lead">
+                        When the code breaks, I want to know why, and I keep at it until it works.
+                    </h2>
+                </div>
+
+                <div class="about-side">
+                    <p>
+                        I'm a junior software engineer who picks up new languages, frameworks,
+                        and libraries quickly, and adapts to whatever stack a project needs.
+                        The projects here came out of my studies and my own builds, and each
+                        one uses a different stack.
+                    </p>
+
+                    <h3 class="about-sub">What I work on</h3>
+                    <ol class="fields">
+                        <li><span>01</span>Web development<small>PHP, Laravel, MySQL, PostgreSQL</small></li>
+                        <li><span>02</span>Mobile apps<small>Flutter, Dart, Java, Firebase</small></li>
+                        <li><span>03</span>Data analysis<small>Python, Pandas, Seaborn</small></li>
+                        <li><span>04</span>Game development<small>Unity, C#</small></li>
+                        <li><span>05</span>UI/UX design<small>Figma</small></li>
+                    </ol>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="about" id="about" aria-labelledby="about-title">
-            <div class="wrap about-inner">
-                <h2 id="about-title" class="label-heading">About</h2>
-                <p>
-                    I'm Muhammad Japa Maulana, a junior software engineer. I pick up new
-                    languages, frameworks, and libraries quickly, and I adapt to whatever
-                    stack a project needs.
-                </p>
-                <p>
-                    The part of the work I enjoy most is problem solving. If something in
-                    the code isn't working, I keep at it until it does. The projects below
-                    came out of my studies and my own builds, and each one uses a different stack.
-                </p>
-
-                <h3 class="label-heading">What I work on</h3>
-                <ul class="chips">
-                    <li>Web development</li>
-                    <li>Mobile apps</li>
-                    <li>Data analysis</li>
-                    <li>Game development</li>
-                    <li>UI/UX design</li>
-                    <li>Git &amp; GitHub</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Work -->
-        <section class="work" id="work" aria-labelledby="work-title">
-            <div class="marquee" aria-hidden="true">
-                <div class="marquee-track">
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                    <span>Selected work</span><span class="marquee-sep">&lt;/&gt;</span>
-                </div>
-            </div>
-            <h2 id="work-title" class="visually-hidden">Selected work</h2>
-
-            <!-- Contents: one polaroid per project, each jumps to its detail -->
+        <!-- 3. Work index -->
+        <section class="screen work-index" id="work" data-tone="dark" aria-labelledby="work-title">
             <div class="wrap">
-                <ol class="contents">
-                    <li>
-                        <a class="polaroid contents-card" href="#nasehatku">
-                            <img class="pos-top" src="assets/nasehatku.png" alt="" width="462" height="1000" loading="lazy">
-                            <span class="contents-num">01</span>
-                            <span class="contents-name">NasehatKu</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="polaroid contents-card" href="#rental">
-                            <img class="pos-left" src="assets/rental-1600.jpg" alt="" width="1600" height="784" loading="lazy">
-                            <span class="contents-num">02</span>
-                            <span class="contents-name">Rental Mobil Barokah</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="polaroid contents-card" href="#weather">
-                            <img class="pos-top" src="assets/image.png" alt="" width="359" height="799" loading="lazy">
-                            <span class="contents-num">03</span>
-                            <span class="contents-name">Weather App</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="polaroid contents-card" href="#bike">
-                            <img src="assets/data.png" alt="" width="594" height="414" loading="lazy">
-                            <span class="contents-num">04</span>
-                            <span class="contents-name">Bike Sharing Analysis</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="polaroid contents-card" href="#leap">
-                            <img src="assets/leapmotion.png" alt="" width="288" height="186" loading="lazy">
-                            <span class="contents-num">05</span>
-                            <span class="contents-name">Gesture Learning</span>
-                        </a>
-                    </li>
+                <div class="index-head">
+                    <h2 id="work-title" class="index-title">Selected <span class="mark mark-dark">work</span></h2>
+                    <p class="index-count">5 projects, newest first</p>
+                </div>
+
+                <ol class="index-list">
+                    <li><a href="#nasehatku"><span class="ix-num">01</span><span class="ix-name">NasehatKu</span><span class="ix-type">Mobile &amp; web app</span><span class="ix-stack">Flutter, Firebase</span></a></li>
+                    <li><a href="#rental"><span class="ix-num">02</span><span class="ix-name">Rental Mobil Barokah</span><span class="ix-type">Web app</span><span class="ix-stack">Laravel, PostgreSQL</span></a></li>
+                    <li><a href="#weather"><span class="ix-num">03</span><span class="ix-name">Weather App</span><span class="ix-type">Android app</span><span class="ix-stack">Java, Retrofit2</span></a></li>
+                    <li><a href="#bike"><span class="ix-num">04</span><span class="ix-name">Bike Sharing Analysis</span><span class="ix-type">Data analysis</span><span class="ix-stack">Python, Pandas</span></a></li>
+                    <li><a href="#leap"><span class="ix-num">05</span><span class="ix-name">Gesture Learning</span><span class="ix-type">Game</span><span class="ix-stack">Unity, C#</span></a></li>
                 </ol>
             </div>
-
-            <article class="case" id="nasehatku">
-                <div class="wrap">
-                    <header class="case-head">
-                        <p class="case-num">01 / 05</p>
-                        <h3 class="case-title">Nasehat<em>Ku</em></h3>
-                        <p class="case-tagline">Advice from mubaligh, on Android and the web</p>
-                    </header>
-
-                    <figure class="case-stage stage-phone">
-                        <div class="shot">
-                            <img src="assets/nasehatku.png" alt="NasehatKu home screen listing topics such as Zakat" width="462" height="1000" loading="lazy">
-                        </div>
-                    </figure>
-
-                    <p class="case-desc">A collection of advice from mubaligh. Each entry holds the dalil (Arabic text, translation, and source), an explanation, its context, and what readers can put into practice. Anyone can read without an account; only registered mubaligh can write. Ships as an Android APK, plus a web version for iPhone.</p>
-
-                    <dl class="case-meta">
-                        <div>
-                            <dt>Type</dt>
-                            <dd>Mobile &amp; web app</dd>
-                        </div>
-                        <div>
-                            <dt>Built with</dt>
-                            <dd>Flutter, Dart, Firebase Auth, Cloud Firestore, Firebase Hosting</dd>
-                        </div>
-                        <div>
-                            <dt>Links</dt>
-                            <dd class="case-links">
-                                <a class="link" href="https://nasehatku.web.app" target="_blank" rel="noopener noreferrer">Web app</a>
-                                <a class="link" href="https://github.com/japamaulana/NasehatKu" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="case" id="rental">
-                <div class="wrap">
-                    <header class="case-head">
-                        <p class="case-num">02 / 05</p>
-                        <h3 class="case-title">Rental Mobil <em>Barokah</em></h3>
-                        <p class="case-tagline">A car rental website with its own admin panel</p>
-                    </header>
-
-                    <figure class="case-stage stage-wide">
-                        <div class="shot">
-                            <img src="assets/rental-1600.jpg" alt="Barokah Rent Car homepage with the headline Sewa Mobil Nyaman dan Terjangkau and a white Toyota Innova" width="1600" height="784" loading="lazy">
-                        </div>
-                    </figure>
-
-                    <p class="case-desc">Customers browse the cars and leave reviews. Admins manage the fleet through full CRUD on car data. The app includes login, CSRF protection, rate limiting, and input sanitization.</p>
-
-                    <dl class="case-meta">
-                        <div>
-                            <dt>Type</dt>
-                            <dd>Web app</dd>
-                        </div>
-                        <div>
-                            <dt>Built with</dt>
-                            <dd>Laravel 11, Blade, Tailwind CSS, PostgreSQL 15, Docker</dd>
-                        </div>
-                        <div>
-                            <dt>Links</dt>
-                            <dd class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="case" id="weather">
-                <div class="wrap">
-                    <header class="case-head">
-                        <p class="case-num">03 / 05</p>
-                        <h3 class="case-title">Weather <em>App</em></h3>
-                        <p class="case-tagline">Current weather and the coming days, by city</p>
-                    </header>
-
-                    <figure class="case-stage stage-phone">
-                        <div class="shot">
-                            <img src="assets/image.png" alt="Weather App showing 27.64 degrees and cloudy in Sukabumi, with a three day forecast" width="359" height="799" loading="lazy">
-                        </div>
-                    </figure>
-
-                    <p class="case-desc">Type a city and get the current weather plus the next few days of forecast, pulled from the OpenWeatherMap API. Built with the MVP pattern, so the API calls, data models, and screens stay in separate layers.</p>
-
-                    <dl class="case-meta">
-                        <div>
-                            <dt>Type</dt>
-                            <dd>Android app</dd>
-                        </div>
-                        <div>
-                            <dt>Built with</dt>
-                            <dd>Java, Retrofit2, Gson, OpenWeatherMap API</dd>
-                        </div>
-                        <div>
-                            <dt>Links</dt>
-                            <dd class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="case" id="bike">
-                <div class="wrap">
-                    <header class="case-head">
-                        <p class="case-num">04 / 05</p>
-                        <h3 class="case-title">Bike Sharing <em>Analysis</em></h3>
-                        <p class="case-tagline">Rental patterns by time and weather</p>
-                    </header>
-
-                    <figure class="case-stage stage-paper">
-                        <div class="shot">
-                            <img src="assets/data.png" alt="Line chart of daily bike rental counts across one month" width="594" height="414" loading="lazy">
-                        </div>
-                    </figure>
-
-                    <p class="case-desc">Looks for patterns in bike rentals using the daily (731 rows) and hourly (17,379 rows) Bike Sharing datasets. Covers data wrangling, exploratory analysis, and charts, with the results published as a Streamlit dashboard.</p>
-
-                    <dl class="case-meta">
-                        <div>
-                            <dt>Type</dt>
-                            <dd>Data analysis</dd>
-                        </div>
-                        <div>
-                            <dt>Built with</dt>
-                            <dd>Python, Pandas, Matplotlib, Seaborn, Streamlit</dd>
-                        </div>
-                        <div>
-                            <dt>Links</dt>
-                            <dd class="case-links">
-                                <a class="link" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer">Dashboard</a>
-                                <a class="link" href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="case" id="leap">
-                <div class="wrap">
-                    <header class="case-head">
-                        <p class="case-num">05 / 05</p>
-                        <h3 class="case-title">Gesture <em>Learning</em></h3>
-                        <p class="case-tagline">A shapes game played with bare hands</p>
-                    </header>
-
-                    <figure class="case-stage stage-small">
-                        <div class="shot">
-                            <img src="assets/leapmotion.png" alt="Game screen: a hand connects points A, B, C, and D to draw a square" width="288" height="186" loading="lazy">
-                        </div>
-                    </figure>
-
-                    <p class="case-desc">A learning game about shapes (square, rectangle, triangle). A Leap Motion sensor tracks your hands, and you pinch and drag to connect points into each shape, with separate scenes for lessons and practice.</p>
-
-                    <dl class="case-meta">
-                        <div>
-                            <dt>Type</dt>
-                            <dd>Game, Unity</dd>
-                        </div>
-                        <div>
-                            <dt>Built with</dt>
-                            <dd>Unity, C#, Leap Motion</dd>
-                        </div>
-                        <div>
-                            <dt>Links</dt>
-                            <dd class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/gesture-pembelajaran-leapmotion" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </article>
-
-            <div class="wrap work-more">
-                <a class="link" href="https://github.com/japamaulana" target="_blank" rel="noopener noreferrer">All repositories on GitHub</a>
-            </div>
         </section>
 
-        <!-- Contact -->
-        <section class="contact" id="contact" aria-labelledby="contact-title">
+        <!-- 4. Projects -->
+        <article class="screen case" id="nasehatku" data-tone="dark" aria-labelledby="t-nasehatku">
+            <div class="wrap case-grid">
+                <div class="case-info">
+                    <p class="case-num">01 / 05</p>
+                    <h3 id="t-nasehatku" class="case-title">NasehatKu</h3>
+                    <p class="case-desc">
+                        A collection of advice from mubaligh. Each entry holds the dalil
+                        (Arabic text, translation, and source), an explanation, its context,
+                        and what readers can put into practice. Anyone can read without an
+                        account; only registered mubaligh can write. Ships as an Android APK,
+                        plus a web version for iPhone.
+                    </p>
+                    <dl class="spec spec-dark">
+                        <div><dt>Type</dt><dd>Mobile &amp; web app</dd></div>
+                        <div><dt>Built with</dt><dd>Flutter, Dart, Firebase Auth, Cloud Firestore, Firebase Hosting</dd></div>
+                        <div><dt>Links</dt><dd class="spec-links"><a class="link" href="https://nasehatku.web.app" target="_blank" rel="noopener noreferrer">Web app</a><a class="link" href="https://github.com/japamaulana/NasehatKu" target="_blank" rel="noopener noreferrer">GitHub</a></dd></div>
+                    </dl>
+                </div>
+                <figure class="case-stage stage-phone">
+                    <img src="assets/nasehatku.png" alt="NasehatKu home screen listing topics such as Zakat" width="462" height="1000" loading="lazy">
+                </figure>
+            </div>
+        </article>
+
+        <article class="screen case" id="rental" data-tone="dark" aria-labelledby="t-rental">
+            <div class="wrap case-grid">
+                <div class="case-info">
+                    <p class="case-num">02 / 05</p>
+                    <h3 id="t-rental" class="case-title">Rental Mobil Barokah</h3>
+                    <p class="case-desc">
+                        A car rental website. Customers browse the cars and leave reviews.
+                        Admins manage the fleet through full CRUD on car data. Includes login,
+                        CSRF protection, rate limiting, and input sanitization.
+                    </p>
+                    <dl class="spec spec-dark">
+                        <div><dt>Type</dt><dd>Web app</dd></div>
+                        <div><dt>Built with</dt><dd>Laravel 11, Blade, Tailwind CSS, PostgreSQL 15, Docker</dd></div>
+                        <div><dt>Links</dt><dd class="spec-links"><a class="link" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer">GitHub</a></dd></div>
+                    </dl>
+                </div>
+                <figure class="case-stage stage-wide">
+                    <img src="assets/rental-1600.jpg" alt="Barokah Rent Car homepage with the headline Sewa Mobil Nyaman dan Terjangkau and a white Toyota Innova" width="1600" height="784" loading="lazy">
+                </figure>
+            </div>
+        </article>
+
+        <article class="screen case" id="weather" data-tone="dark" aria-labelledby="t-weather">
+            <div class="wrap case-grid">
+                <div class="case-info">
+                    <p class="case-num">03 / 05</p>
+                    <h3 id="t-weather" class="case-title">Weather App</h3>
+                    <p class="case-desc">
+                        Type a city and get the current weather plus the next few days of
+                        forecast, pulled from the OpenWeatherMap API. Built with the MVP
+                        pattern, so the API calls, data models, and screens stay in separate
+                        layers.
+                    </p>
+                    <dl class="spec spec-dark">
+                        <div><dt>Type</dt><dd>Android app</dd></div>
+                        <div><dt>Built with</dt><dd>Java, Retrofit2, Gson, OpenWeatherMap API</dd></div>
+                        <div><dt>Links</dt><dd class="spec-links"><a class="link" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer">GitHub</a></dd></div>
+                    </dl>
+                </div>
+                <figure class="case-stage stage-phone">
+                    <img src="assets/image.png" alt="Weather App showing 27.64 degrees and cloudy in Sukabumi, with a three day forecast" width="359" height="799" loading="lazy">
+                </figure>
+            </div>
+        </article>
+
+        <article class="screen case" id="bike" data-tone="dark" aria-labelledby="t-bike">
+            <div class="wrap case-grid">
+                <div class="case-info">
+                    <p class="case-num">04 / 05</p>
+                    <h3 id="t-bike" class="case-title">Bike Sharing Analysis</h3>
+                    <p class="case-desc">
+                        Looks for patterns in bike rentals by time and weather, using the
+                        daily (731 rows) and hourly (17,379 rows) Bike Sharing datasets.
+                        Covers data wrangling, exploratory analysis, and charts, with the
+                        results published as a Streamlit dashboard.
+                    </p>
+                    <dl class="spec spec-dark">
+                        <div><dt>Type</dt><dd>Data analysis</dd></div>
+                        <div><dt>Built with</dt><dd>Python, Pandas, Matplotlib, Seaborn, Streamlit</dd></div>
+                        <div><dt>Links</dt><dd class="spec-links"><a class="link" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer">Dashboard</a><a class="link" href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis" target="_blank" rel="noopener noreferrer">GitHub</a></dd></div>
+                    </dl>
+                </div>
+                <figure class="case-stage stage-wide stage-paper">
+                    <img src="assets/data.png" alt="Line chart of daily bike rental counts across one month" width="594" height="414" loading="lazy">
+                </figure>
+            </div>
+        </article>
+
+        <article class="screen case" id="leap" data-tone="dark" aria-labelledby="t-leap">
+            <div class="wrap case-grid">
+                <div class="case-info">
+                    <p class="case-num">05 / 05</p>
+                    <h3 id="t-leap" class="case-title">Gesture Learning</h3>
+                    <p class="case-desc">
+                        A learning game about shapes (square, rectangle, triangle). A Leap
+                        Motion sensor tracks your hands, and you pinch and drag to connect
+                        points into each shape, with separate scenes for lessons and practice.
+                    </p>
+                    <dl class="spec spec-dark">
+                        <div><dt>Type</dt><dd>Game</dd></div>
+                        <div><dt>Built with</dt><dd>Unity, C#, Leap Motion</dd></div>
+                        <div><dt>Links</dt><dd class="spec-links"><a class="link" href="https://github.com/japamaulana/gesture-pembelajaran-leapmotion" target="_blank" rel="noopener noreferrer">GitHub</a></dd></div>
+                    </dl>
+                </div>
+                <figure class="case-stage stage-wide stage-small">
+                    <img src="assets/leapmotion.png" alt="Game screen: a hand connects points A, B, C, and D to draw a square" width="288" height="186" loading="lazy">
+                </figure>
+            </div>
+        </article>
+
+        <!-- 5. Contact -->
+        <section class="screen contact" id="contact" data-tone="light" aria-labelledby="contact-title">
             <div class="wrap contact-inner">
-                <h2 id="contact-title" class="contact-title">Let's build <em>something</em></h2>
+                <p class="eyebrow">Contact</p>
+                <h2 id="contact-title" class="contact-title">Let's build <span class="mark">something</span>.</h2>
                 <p class="contact-sub">Got a project, or just want to say hi? Email is the fastest way to reach me.</p>
                 <a class="contact-email" href="mailto:maulanajapa02@gmail.com">maulanajapa02@gmail.com</a>
 
@@ -374,18 +247,16 @@
                     <li><a href="https://www.instagram.com/jeeeppp2/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                     <li><a href="https://www.facebook.com/share/1NGmTYfRR8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                 </ul>
+
+                <footer class="footer">
+                    <p>Muhammad Japa Maulana / 2026</p>
+                    <a href="#top">Back to top</a>
+                </footer>
             </div>
         </section>
 
     </main>
 
-    <footer class="footer">
-        <div class="wrap footer-inner">
-            <p>Muhammad Japa Maulana / Portfolio 2026</p>
-            <a href="#top">Back to top</a>
-        </div>
-    </footer>
-
-    <script src="script.js?v=5" defer></script>
+    <script src="script.js?v=6" defer></script>
 </body>
 </html>

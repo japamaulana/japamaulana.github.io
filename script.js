@@ -1,57 +1,25 @@
 const topbar = document.querySelector(".topbar");
-const marqueeTrack = document.querySelector(".marquee-track");
-const marquee = document.querySelector(".marquee");
-const seal = document.querySelector(".seal");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-/*
-  The marquee and the round seal move with the scroll position instead of looping
-  on a timer, so nothing keeps moving while the reader is still.
-*/
-let ticking = false;
-
-function update() {
-    ticking = false;
-    const y = window.scrollY;
-    topbar.classList.toggle("is-scrolled", y > 8);
-
-    if (reduceMotion.matches) {
-        marqueeTrack.style.setProperty("--shift", "0px");
-        seal.style.setProperty("--spin", "0deg");
-        return;
-    }
-
-    seal.style.setProperty("--spin", `${y * 0.25}deg`);
-
-    const rect = marquee.getBoundingClientRect();
-    if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-        const travel = marqueeTrack.scrollWidth - marquee.clientWidth;
-        marqueeTrack.style.setProperty("--shift", `${-progress * travel * 0.6}px`);
-    }
-}
-
-function onScroll() {
-    if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-    }
-}
-
-window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("resize", onScroll);
-reduceMotion.addEventListener("change", update);
-update();
-
-/* Mark the nav link for the section in view. */
+const screens = [...document.querySelectorAll(".screen")];
 const navLinks = [...document.querySelectorAll('.nav-list a[href^="#"]')];
 
+/* Which nav item owns each screen (project screens belong to Work). */
+function navTarget(screen) {
+    if (screen.classList.contains("case")) return "work";
+    return screen.id;
+}
+
+/* The top bar takes the colour of the screen under it, and the nav marks where you are. */
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
+            const screen = entry.target;
+            topbar.classList.toggle("tone-dark", screen.dataset.tone === "dark");
+            topbar.classList.toggle("tone-mint", screen.dataset.tone === "mint");
+
+            const target = navTarget(screen);
             navLinks.forEach((link) => {
-                if (link.getAttribute("href") === `#${entry.target.id}`) {
+                if (link.getAttribute("href") === `#${target}`) {
                     link.setAttribute("aria-current", "true");
                 } else {
                     link.removeAttribute("aria-current");
@@ -59,10 +27,7 @@ const observer = new IntersectionObserver(
             });
         });
     },
-    { rootMargin: "-45% 0px -50% 0px" }
+    { rootMargin: "0px 0px -92% 0px" }
 );
 
-navLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean)
-    .forEach((section) => observer.observe(section));
+screens.forEach((screen) => observer.observe(screen));
