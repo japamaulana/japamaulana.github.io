@@ -144,10 +144,15 @@ button {
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+.topbar {
+    border-bottom: 1px solid rgba(20, 20, 20, 0.14);
+}
+
 .topbar.tone-dark {
     --focus: var(--mint-bright);
     background: var(--night);
     color: var(--on-night);
+    border-bottom-color: var(--night-line);
 }
 
 .topbar.tone-mint {
@@ -175,6 +180,12 @@ button {
     opacity: 0.6;
 }
 
+.topbar nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .nav-list {
     display: flex;
     gap: 0.25rem;
@@ -186,21 +197,80 @@ button {
 .nav-list a {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
-    padding-inline: 0.75rem;
+    min-height: 40px;
+    padding-inline: 0.8rem;
     font-family: var(--mono);
     font-size: 0.85rem;
     text-decoration: none;
-    opacity: 0.75;
-    transition: opacity 0.15s ease;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
 }
 
-.nav-list a:hover,
+.nav-list a:hover {
+    background: rgba(20, 20, 20, 0.07);
+}
+
+/* Current section: a filled tab (ink on light screens, mint on dark ones). */
 .nav-list a[aria-current="true"] {
-    opacity: 1;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 6px;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.topbar.tone-dark .nav-list a:hover {
+    background: rgba(237, 234, 226, 0.1);
+}
+
+.topbar.tone-dark .nav-list a[aria-current="true"] {
+    background: var(--mint);
+    color: var(--ink);
+}
+
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding-inline: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--mint);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-cta:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.topbar.tone-mint .nav-cta {
+    background: var(--paper);
+}
+
+.topbar.tone-dark .nav-cta {
+    border-color: var(--mint);
+}
+
+.topbar.tone-dark .nav-cta:hover {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+@media (max-width: 600px) {
+    .nav-cta {
+        display: none;
+    }
+
+    .wordmark span {
+        display: none;
+    }
+
+    .nav-list a {
+        padding-inline: 0.6rem;
+        min-height: 44px;
+    }
 }
 
 /* ---------- Screens ---------- */
@@ -347,6 +417,22 @@ button {
     max-width: 340px;
 }
 
+/* Mint block offset behind the photo: same mint as the headline highlighter. */
+.intro-photo-frame {
+    position: relative;
+    isolation: isolate;
+    margin: 0 0 18px 18px;
+}
+
+.intro-photo-frame::before {
+    content: "";
+    position: absolute;
+    inset: 18px 18px -18px -18px;
+    z-index: -1;
+    background: var(--mint);
+    border-radius: 12px;
+}
+
 .intro-photo {
     width: 100%;
     max-height: 44vh;
@@ -357,6 +443,14 @@ button {
 }
 
 @media (max-width: 860px) {
+    .intro-photo-frame {
+        margin: 0 0 10px 10px;
+    }
+
+    .intro-photo-frame::before {
+        inset: 10px 10px -10px -10px;
+    }
+
     .intro-grid {
         grid-template-columns: 1fr;
     }
@@ -379,8 +473,8 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .intro-photo {
-        width: 120px;
+    .intro-photo-frame {
+        width: 140px;
     }
 
     .intro-actions .btn {
