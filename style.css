@@ -417,22 +417,6 @@ button {
     max-width: 340px;
 }
 
-/* Mint block offset behind the photo: same mint as the headline highlighter. */
-.intro-photo-frame {
-    position: relative;
-    isolation: isolate;
-    margin: 0 0 18px 18px;
-}
-
-.intro-photo-frame::before {
-    content: "";
-    position: absolute;
-    inset: 18px 18px -18px -18px;
-    z-index: -1;
-    background: var(--mint);
-    border-radius: 12px;
-}
-
 .intro-photo {
     width: 100%;
     max-height: 44vh;
@@ -443,14 +427,6 @@ button {
 }
 
 @media (max-width: 860px) {
-    .intro-photo-frame {
-        margin: 0 0 10px 10px;
-    }
-
-    .intro-photo-frame::before {
-        inset: 10px 10px -10px -10px;
-    }
-
     .intro-grid {
         grid-template-columns: 1fr;
     }
@@ -473,8 +449,8 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .intro-photo-frame {
-        width: 140px;
+    .intro-photo {
+        width: 120px;
     }
 
     .intro-actions .btn {
