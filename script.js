@@ -1,89 +1,68 @@
-const root = document.documentElement;
-const header = document.querySelector(".site-header");
-const nav = document.getElementById("site-nav");
-const menuToggle = document.querySelector(".menu-toggle");
-const themeToggle = document.querySelector(".theme-toggle");
-const themeLabel = document.querySelector(".theme-toggle-label");
+const topbar = document.querySelector(".topbar");
+const marqueeTrack = document.querySelector(".marquee-track");
+const marquee = document.querySelector(".marquee");
+const seal = document.querySelector(".seal");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-/* Theme toggle: the initial theme is set inline in <head> to avoid a flash. */
-function syncThemeButton() {
-    const isDark = root.dataset.theme === "dark";
-    themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeLabel.textContent = isDark ? "Light" : "Dark";
-    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-}
+/*
+  The marquee and the round seal move with the scroll position instead of looping
+  on a timer, so nothing keeps moving while the reader is still.
+*/
+let ticking = false;
 
-themeToggle.addEventListener("click", () => {
-    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", root.dataset.theme);
-    syncThemeButton();
-});
+function update() {
+    ticking = false;
+    const y = window.scrollY;
+    topbar.classList.toggle("is-scrolled", y > 8);
 
-syncThemeButton();
-
-/* Mobile menu */
-function setMenu(open) {
-    nav.classList.toggle("is-open", open);
-    menuToggle.setAttribute("aria-expanded", String(open));
-    menuToggle.textContent = open ? "Close" : "Menu";
-}
-
-menuToggle.addEventListener("click", () => {
-    setMenu(!nav.classList.contains("is-open"));
-});
-
-nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setMenu(false));
-});
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && nav.classList.contains("is-open")) {
-        setMenu(false);
-        menuToggle.focus();
+    if (reduceMotion.matches) {
+        marqueeTrack.style.setProperty("--shift", "0px");
+        seal.style.setProperty("--spin", "0deg");
+        return;
     }
-});
 
-window.matchMedia("(min-width: 761px)").addEventListener("change", (event) => {
-    if (event.matches) setMenu(false);
-});
+    seal.style.setProperty("--spin", `${y * 0.25}deg`);
 
-/* Header rule appears once the page scrolls, so the hero starts clean. */
-const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    const rect = marquee.getBoundingClientRect();
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        const travel = marqueeTrack.scrollWidth - marquee.clientWidth;
+        marqueeTrack.style.setProperty("--shift", `${-progress * travel * 0.6}px`);
+    }
+}
+
+function onScroll() {
+    if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+    }
+}
+
 window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+window.addEventListener("resize", onScroll);
+reduceMotion.addEventListener("change", update);
+update();
 
-/* Mark the nav link for the section currently in view. */
-const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
-const sections = navLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
+/* Mark the nav link for the section in view. */
+const navLinks = [...document.querySelectorAll('.nav-list a[href^="#"]')];
 
-const sectionObserver = new IntersectionObserver(
+const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
             navLinks.forEach((link) => {
-                const active = link.getAttribute("href") === `#${entry.target.id}`;
-                if (active) link.setAttribute("aria-current", "true");
-                else link.removeAttribute("aria-current");
+                if (link.getAttribute("href") === `#${entry.target.id}`) {
+                    link.setAttribute("aria-current", "true");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
             });
         });
     },
     { rootMargin: "-45% 0px -50% 0px" }
 );
 
-sections.forEach((section) => sectionObserver.observe(section));
-
-/* Highlighter strokes draw once when their phrase scrolls into view. */
-const markObserver = new IntersectionObserver(
-    (entries, observer) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-drawn");
-            observer.unobserve(entry.target);
-        });
-    },
-    { threshold: 0.8 }
-);
-
-document.querySelectorAll(".mark").forEach((mark) => markObserver.observe(mark));
+navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean)
+    .forEach((section) => observer.observe(section));
