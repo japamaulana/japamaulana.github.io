@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
@@ -178,147 +178,180 @@
                 </ol>
             </div>
 
-            <!-- 01 NasehatKu -->
             <article class="case" id="nasehatku">
                 <div class="wrap">
                     <header class="case-head">
-                        <p class="case-num">01</p>
+                        <p class="case-num">01 / 05</p>
                         <h3 class="case-title">Nasehat<em>Ku</em></h3>
-                        <p class="case-tagline">A Flutter app of advice from mubaligh, on Android and the web</p>
+                        <p class="case-tagline">Advice from mubaligh, on Android and the web</p>
                     </header>
-                    <div class="case-body case-body-phone">
-                        <figure class="case-shot shot-phone">
+
+                    <figure class="case-stage stage-phone">
+                        <div class="shot">
                             <img src="assets/nasehatku.png" alt="NasehatKu home screen listing topics such as Zakat" width="462" height="1000" loading="lazy">
-                        </figure>
-                        <div class="case-text">
-                            <p>
-                                A collection of advice from mubaligh. Each entry holds the dalil
-                                (Arabic text, translation, and source), an explanation, its context,
-                                and what readers can put into practice. Anyone can read without an
-                                account; only registered mubaligh can write.
-                            </p>
-                            <p>
-                                Ships as an Android APK, plus a web version that iPhone users add
-                                to their home screen from Safari.
-                            </p>
-                            <p class="case-stack">Flutter / Dart / Firebase Auth / Cloud Firestore / Firebase Hosting</p>
-                            <div class="case-links">
-                                <a class="link" href="https://nasehatku.web.app" target="_blank" rel="noopener noreferrer">Open the web app</a>
-                                <a class="link" href="https://github.com/japamaulana/NasehatKu" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-                            </div>
                         </div>
-                    </div>
+                    </figure>
+
+                    <p class="case-desc">A collection of advice from mubaligh. Each entry holds the dalil (Arabic text, translation, and source), an explanation, its context, and what readers can put into practice. Anyone can read without an account; only registered mubaligh can write. Ships as an Android APK, plus a web version for iPhone.</p>
+
+                    <dl class="case-meta">
+                        <div>
+                            <dt>Type</dt>
+                            <dd>Mobile &amp; web app</dd>
+                        </div>
+                        <div>
+                            <dt>Built with</dt>
+                            <dd>Flutter, Dart, Firebase Auth, Cloud Firestore, Firebase Hosting</dd>
+                        </div>
+                        <div>
+                            <dt>Links</dt>
+                            <dd class="case-links">
+                                <a class="link" href="https://nasehatku.web.app" target="_blank" rel="noopener noreferrer">Web app</a>
+                                <a class="link" href="https://github.com/japamaulana/NasehatKu" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
             </article>
 
-            <!-- 02 Rental -->
             <article class="case" id="rental">
                 <div class="wrap">
                     <header class="case-head">
-                        <p class="case-num">02</p>
+                        <p class="case-num">02 / 05</p>
                         <h3 class="case-title">Rental Mobil <em>Barokah</em></h3>
                         <p class="case-tagline">A car rental website with its own admin panel</p>
                     </header>
-                    <div class="case-body case-body-wide">
-                        <figure class="case-shot shot-wide">
+
+                    <figure class="case-stage stage-wide">
+                        <div class="shot">
                             <img src="assets/rental-1600.jpg" alt="Barokah Rent Car homepage with the headline Sewa Mobil Nyaman dan Terjangkau and a white Toyota Innova" width="1600" height="784" loading="lazy">
-                        </figure>
-                        <div class="case-text">
-                            <p>
-                                Customers browse the cars and leave reviews. Admins manage the
-                                fleet through full CRUD on car data. The app includes login, CSRF
-                                protection, rate limiting, and input sanitization.
-                            </p>
-                            <p class="case-stack">Laravel 11 / Blade / Tailwind CSS / PostgreSQL 15 / Docker</p>
-                            <div class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-                            </div>
                         </div>
-                    </div>
+                    </figure>
+
+                    <p class="case-desc">Customers browse the cars and leave reviews. Admins manage the fleet through full CRUD on car data. The app includes login, CSRF protection, rate limiting, and input sanitization.</p>
+
+                    <dl class="case-meta">
+                        <div>
+                            <dt>Type</dt>
+                            <dd>Web app</dd>
+                        </div>
+                        <div>
+                            <dt>Built with</dt>
+                            <dd>Laravel 11, Blade, Tailwind CSS, PostgreSQL 15, Docker</dd>
+                        </div>
+                        <div>
+                            <dt>Links</dt>
+                            <dd class="case-links">
+                                <a class="link" href="https://github.com/japamaulana/rental-mobilbarokah" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
             </article>
 
-            <!-- 03 Weather -->
             <article class="case" id="weather">
                 <div class="wrap">
                     <header class="case-head">
-                        <p class="case-num">03</p>
+                        <p class="case-num">03 / 05</p>
                         <h3 class="case-title">Weather <em>App</em></h3>
-                        <p class="case-tagline">An Android app for current weather and the coming days</p>
+                        <p class="case-tagline">Current weather and the coming days, by city</p>
                     </header>
-                    <div class="case-body case-body-phone case-body-flip">
-                        <figure class="case-shot shot-phone">
+
+                    <figure class="case-stage stage-phone">
+                        <div class="shot">
                             <img src="assets/image.png" alt="Weather App showing 27.64 degrees and cloudy in Sukabumi, with a three day forecast" width="359" height="799" loading="lazy">
-                        </figure>
-                        <div class="case-text">
-                            <p>
-                                Type a city and get the current weather plus the next few days of
-                                forecast, pulled from the OpenWeatherMap API. Built with the MVP
-                                pattern, so the API calls, data models, and screens stay in
-                                separate layers.
-                            </p>
-                            <p class="case-stack">Java / Retrofit2 / Gson / OpenWeatherMap API</p>
-                            <div class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-                            </div>
                         </div>
-                    </div>
+                    </figure>
+
+                    <p class="case-desc">Type a city and get the current weather plus the next few days of forecast, pulled from the OpenWeatherMap API. Built with the MVP pattern, so the API calls, data models, and screens stay in separate layers.</p>
+
+                    <dl class="case-meta">
+                        <div>
+                            <dt>Type</dt>
+                            <dd>Android app</dd>
+                        </div>
+                        <div>
+                            <dt>Built with</dt>
+                            <dd>Java, Retrofit2, Gson, OpenWeatherMap API</dd>
+                        </div>
+                        <div>
+                            <dt>Links</dt>
+                            <dd class="case-links">
+                                <a class="link" href="https://github.com/japamaulana/weitherapp" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
             </article>
 
-            <!-- 04 Bike -->
             <article class="case" id="bike">
                 <div class="wrap">
                     <header class="case-head">
-                        <p class="case-num">04</p>
+                        <p class="case-num">04 / 05</p>
                         <h3 class="case-title">Bike Sharing <em>Analysis</em></h3>
-                        <p class="case-tagline">Rental patterns by time and weather, in Python</p>
+                        <p class="case-tagline">Rental patterns by time and weather</p>
                     </header>
-                    <div class="case-body case-body-wide">
-                        <figure class="case-shot shot-wide shot-paper">
+
+                    <figure class="case-stage stage-paper">
+                        <div class="shot">
                             <img src="assets/data.png" alt="Line chart of daily bike rental counts across one month" width="594" height="414" loading="lazy">
-                        </figure>
-                        <div class="case-text">
-                            <p>
-                                Looks for patterns in bike rentals using the daily (731 rows) and
-                                hourly (17,379 rows) Bike Sharing datasets. Covers data wrangling,
-                                exploratory analysis, and charts, with the results published as a
-                                Streamlit dashboard.
-                            </p>
-                            <p class="case-stack">Python / Pandas / Matplotlib / Seaborn / Streamlit</p>
-                            <div class="case-links">
-                                <a class="link" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer">Open the dashboard</a>
-                                <a class="link" href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis" target="_blank" rel="noopener noreferrer">Notebook on GitHub</a>
-                            </div>
                         </div>
-                    </div>
+                    </figure>
+
+                    <p class="case-desc">Looks for patterns in bike rentals using the daily (731 rows) and hourly (17,379 rows) Bike Sharing datasets. Covers data wrangling, exploratory analysis, and charts, with the results published as a Streamlit dashboard.</p>
+
+                    <dl class="case-meta">
+                        <div>
+                            <dt>Type</dt>
+                            <dd>Data analysis</dd>
+                        </div>
+                        <div>
+                            <dt>Built with</dt>
+                            <dd>Python, Pandas, Matplotlib, Seaborn, Streamlit</dd>
+                        </div>
+                        <div>
+                            <dt>Links</dt>
+                            <dd class="case-links">
+                                <a class="link" href="https://seaborn-uas.streamlit.app" target="_blank" rel="noopener noreferrer">Dashboard</a>
+                                <a class="link" href="https://github.com/japamaulana/Bike-Sharing-Data-Analysis" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
             </article>
 
-            <!-- 05 Leap -->
             <article class="case" id="leap">
                 <div class="wrap">
                     <header class="case-head">
-                        <p class="case-num">05</p>
+                        <p class="case-num">05 / 05</p>
                         <h3 class="case-title">Gesture <em>Learning</em></h3>
-                        <p class="case-tagline">A Unity game played with bare hands through Leap Motion</p>
+                        <p class="case-tagline">A shapes game played with bare hands</p>
                     </header>
-                    <div class="case-body case-body-small case-body-flip">
-                        <figure class="case-shot shot-small">
+
+                    <figure class="case-stage stage-small">
+                        <div class="shot">
                             <img src="assets/leapmotion.png" alt="Game screen: a hand connects points A, B, C, and D to draw a square" width="288" height="186" loading="lazy">
-                        </figure>
-                        <div class="case-text">
-                            <p>
-                                A learning game about shapes (square, rectangle, triangle). A Leap
-                                Motion sensor tracks your hands, and you pinch and drag to connect
-                                points into each shape, with separate scenes for lessons and practice.
-                            </p>
-                            <p class="case-stack">Unity / C# / Leap Motion</p>
-                            <div class="case-links">
-                                <a class="link" href="https://github.com/japamaulana/gesture-pembelajaran-leapmotion" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-                            </div>
                         </div>
-                    </div>
+                    </figure>
+
+                    <p class="case-desc">A learning game about shapes (square, rectangle, triangle). A Leap Motion sensor tracks your hands, and you pinch and drag to connect points into each shape, with separate scenes for lessons and practice.</p>
+
+                    <dl class="case-meta">
+                        <div>
+                            <dt>Type</dt>
+                            <dd>Game, Unity</dd>
+                        </div>
+                        <div>
+                            <dt>Built with</dt>
+                            <dd>Unity, C#, Leap Motion</dd>
+                        </div>
+                        <div>
+                            <dt>Links</dt>
+                            <dd class="case-links">
+                                <a class="link" href="https://github.com/japamaulana/gesture-pembelajaran-leapmotion" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
             </article>
 
@@ -353,6 +386,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=4" defer></script>
+    <script src="script.js?v=5" defer></script>
 </body>
 </html>
